@@ -1,11 +1,13 @@
 const express = require('express');
 const cors = require('cors');
 const db = require('./database');
+const pgp = require('pg-promise')();
 
 const app = express();
 const PORTA = process.env.PORT || 3001;
+const db = pgp({'postgres://postgres:postgres@localhost:5432/dev_web'});
 
-app.use(cors());
+app.use(cors()); 
 app.use(express.json());
 
 
@@ -36,7 +38,7 @@ app.post('/api/fornecedor', (req, res) => {
 
   if (!nome || !email || !telefone || !endereco) {
     return res.status(400).json({
-      erro: "Os campos 'nome', 'email', 'telefone' e 'endereco' são obrigatórios."
+      erro: "Os campos 'nome', 'email', 'telefone' e 'endereco' são obrigatórs."
     });
   }
 

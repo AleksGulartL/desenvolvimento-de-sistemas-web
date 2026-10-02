@@ -22,7 +22,7 @@ export default function DadosFornecedor({ fornecedor, onEdit, onDelete }) {
           )}
           {onDelete && (
             <Button size="small" variant="contained" color="error" onClick={() => onDelete(fornecedor.id, fornecedor.nome)}>
-              Deletar
+              Delet
             </Button>
           )}
         </Stack>
